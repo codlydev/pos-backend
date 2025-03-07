@@ -1,6 +1,10 @@
 package routes
 
-import "github.com/gin-gonic/gin"
+import (
+	"pos-backend/controllers"
+
+	"github.com/gin-gonic/gin"
+)
 
 func UserRoutes(r *gin.Engine) {
 	r.POST("/register", controllers.Register)
