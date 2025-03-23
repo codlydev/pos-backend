@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: pos-backend
-        image: muhammadharoon26/pos-backend:latest
+        image: muhammadharoon26/pos-backend:${DOCKER_TAG}  # Use DOCKER_TAG for pipeline substitution
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
@@ -23,6 +23,6 @@ spec:
         - name: PORT
           value: "8080"
         - name: DATABASE_URL
-          value: "postgres://postgres:kalikali@postgres-service:5432/pos_db"
+          value: "postgres://postgres:kalikali@postgres-service:5432/pos_db?sslmode=disable"
         - name: JWT_SECRET
           value: "supersecretkey"
