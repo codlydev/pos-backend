@@ -14,7 +14,8 @@ RUN rm go1.23.1.linux-amd64.tar.gz
 ENV PATH="/usr/local/go/bin:${PATH}"
 RUN go version
 
-# Create the docker group with GID 999 before installing docker.io
+# Remove the existing docker group (if it exists) and create it with GID 999
+RUN groupdel docker || true
 RUN groupadd -g 999 docker
 
 # Install Docker
