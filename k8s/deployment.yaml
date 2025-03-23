@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-name: my-deploymentname: pos-backend
+  name: pos-backend
 spec:
   replicas: 1
   selector:
@@ -15,3 +15,13 @@ spec:
       containers:
       - name: pos-backend
         image: pos-backend:latest
+        imagePullPolicy: Never  # Set to Never to use local image
+        ports:
+        - containerPort: 8080
+        env:
+        - name: PORT
+          value: "8080"
+        - name: DATABASE_URL
+          value: "postgres://postgres:kalikali@postgres-service:5432/pos_db"
+        - name: JWT_SECRET
+          value: "supersecretkey"
