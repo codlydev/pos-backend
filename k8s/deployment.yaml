@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: pos-backend
+  namespace: default
 spec:
   replicas: 1
   selector:
@@ -14,8 +15,8 @@ spec:
     spec:
       containers:
       - name: pos-backend
-        image: pos-backend:latest
-        imagePullPolicy: Never  # Set to Never to use local image
+        image: muhammadharoon26/pos-backend:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 8080
         env:
