@@ -2,8 +2,8 @@ package main
 
 import (
 	"log"
-	"net/http"
 	"os"
+
 	"pos-backend/config"
 	"pos-backend/routes"
 
@@ -38,4 +38,3 @@ func main() {
 	log.Println("POS Backend running on port", port)
 	r.Run(":" + port)
 }
-
